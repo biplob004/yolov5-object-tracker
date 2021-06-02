@@ -11,7 +11,7 @@ import math
 
 
 
-yolov5_weight = 'your_weight_file_name.pt' # yolov5 model
+yolov5_weight = 'yolov5s.pt' # yolov5 model
 
 
 
