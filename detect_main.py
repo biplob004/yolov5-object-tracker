@@ -3,13 +3,11 @@ from custom_functions import *
 
 
 cap = cv2.VideoCapture(0)
-cap.set(3, 352) # camera width
-cap.set(4, 288) # camera height
 
 while(cap.isOpened()):
 	ret, frame = cap.read()
 	if ret == True:
-		# Object detection
+		frame = cv2.resize(frame, (352, 288))
 		frame_main = frame.copy()
 		frame_, results = object_detection(frame)
 
