@@ -38,7 +38,7 @@ def object_detection(frame):
 		img = img.unsqueeze(0)
 
 	pred = model(img, augment=False)[0]
-	pred = non_max_suppression(pred, 0.21, 0.45) # prediction, conf, iou
+	pred = non_max_suppression(pred, 0.28, 0.45) # prediction, conf, iou
 
 	detection_result = []
 	for i, det in enumerate(pred):
