@@ -66,7 +66,7 @@ def object_detection(frame):
 list_of_center_dict = {}
 previous_bbox_dic = {} # it store bbox of previous frame
 not_found_id_list = list()
-def object_tracker(results): # this results should be only riders and not any other classes
+def object_tracker(results):
 	results_ = results.copy()
 	global previous_bbox_dic
 	global not_found_id_list
@@ -83,7 +83,7 @@ def object_tracker(results): # this results should be only riders and not any ot
 	for center in bbox_center_list:
 		if len(previous_bbox_dic) == 0: 
 			rand_key = random.randint(10, 800000)
-			new_bbox_dic[rand_key] = center # # adding new center of a rider, bcz there wasn't any prev, frame.
+			new_bbox_dic[rand_key] = center # # adding new center of a the object, bcz there wasn't any prev, frame.
 			list_of_center_dict[rand_key] = [center]  # plot
 		else:
 			dist_list = []
@@ -106,7 +106,7 @@ def object_tracker(results): # this results should be only riders and not any ot
 
 			else: 
 				random_id = random.randint(10, 8000)
-				new_bbox_dic[random_id] = center  # adding new center of a rider, bcz itz newly discovered
+				new_bbox_dic[random_id] = center  # adding new center of a object, bcz itz newly discovered
 				list_of_center_dict[random_id] = [center] # plot
 
 
@@ -123,7 +123,7 @@ def object_tracker(results): # this results should be only riders and not any ot
 				list_of_center_dict.pop(key) # plot
 
 
-	for key, value in new_bbox_dic.items(): # adding newly discoverd riders into the prev_dict
+	for key, value in new_bbox_dic.items(): # adding newly discoverd object into the prev_dict
 		if key not in list(previous_bbox_dic.keys()):
 			previous_bbox_dic[key] = value
 
